@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>MapleStory Tools</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Eterna - v4.3.0
+  * Template URL: https://bootstrapmade.com/eterna-free-multipurpose-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-between align-items-center">
+
+      <div class="logo">
+        <h1><a href="index.html">MapleStory Tools</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="active" href="index.html">Home</a></li>
+          <li><a href="">About</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <div class="container"> 
+	<section id="featured" class="featured"> </section>
+  </div>
+  
+  <section id="featured" class="featured">
+    <div class="container">
+		<div class="row justify-content-md-center">
+			<div class="col col-lg-5">
+				<h2 align="center"> Spell Trace Reverse Check </h2>
+			</div>
+		</div>
+	</div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Form Section ======= -->
+    <section id="featured" class="featured">
+      <div class="container">
+		<div class="row justify-content-md-center">
+			<div class="col col-lg-6">
+			
+				<div class="form-group">
+					<label for="equipmentLevel"><b>Equipment Level:</b></label>
+					<select class="form-control" type="number" name="equipmentLevel" id="equipmentLevel">
+						<option value="140">138 - 149</option>
+						<option value="150">150 - 159</option>
+						<option value="160">160 - 199</option>
+						<option value="200">200</option>
+					</select>
+				</div>
+				<br>
+				<div class="form-group">
+					<label for="equipmentLevel"><b>Equipment Type:</b></label>
+					<select class="form-control" name="equipmentType" id="equipmentType">
+						<option value="weapon">Weapon</option>
+						<option value="glove">Gloves</option>
+						<option value="armor">Armor and Accessories (excl. hearts)</option>
+					</select>
+				</div>
+				<br>
+				<div class="form-group">
+				<label for="slots"><b>Number of successful traced slots:</b></label>
+				<input type="number" class="form-control" id="slots" placeholder="The number beside the eq name">
+				</div>
+				<br>
+				<div class="form-group">
+				<label for="stars"><b>Number of current stars:</b></label>
+				<input type="number" class="form-control" id="stars" placeholder="Enter the current number of stars">
+				</div>
+				<br>
+				<div class="form-group">
+				<label for="baseStats"><b>Base Stats (your main stats):</b></label>
+				<input type="number" class="form-control" id="baseStats" placeholder="White color number">
+				</div>
+				<br>
+				<div class="form-group">
+				<label for="increasedStats"><b>Increased Stats (your main stats):</b></label>
+				<input type="number" class="form-control" id="increasedStats" placeholder="Blue color number inside the bracket">
+				</div>
+				<br>
+				<div class="form-group">
+				<label for="baseAttack"><b>Base Attack (Weapon or Magic Attack depending on class):</b></label>
+				<input type="number" class="form-control" id="baseAttack" placeholder="White color number">
+				</div>
+				<br>
+				<div class="form-group">
+				<label for="increasedAttack"><b>Increased Attack (Weapon or Magic Attack depending on class):</b></label>
+				<input type="number" class="form-control" id="increasedAttack" placeholder="Blue color number inside the bracket">
+				</div>
+				<br>
+				<button type="submit" class="btn btn-primary mb-2" onclick="executeTrace(Number(document.getElementById('equipmentLevel').value), document.getElementById('equipmentType').value, Number(document.getElementById('slots').value), Number(document.getElementById('stars').value), Number(document.getElementById('baseStats').value), Number(document.getElementById('increasedStats').value), Number(document.getElementById('baseAttack').value), Number(document.getElementById('increasedAttack').value))">Calculate</button>
+				<br><br>
+			</div>
+			
+			<div class="container">
+				<div class="row justify-content-md-center">
+					<div id="traceResultSection" class="col col-lg-6">
+
+					</div>
+				</div>
+			</div>
+	
+		</div>
+      </div>
+    </section><!-- End Form Section -->
+	
+	
+	  
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>AppleFlash</span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  
+  <!-- Logic for Reverse Trace -->
+  <script src="assets/js/reversetrace.js"></script>
+  
+  <!-- Calculate Trace After Form Submit -->
+  <script>
+		function executeTrace(level, type, slots, stars, baseStats, increasedStats, baseWA, increasedWA) {
+			if (type == "weapon") {
+				var traceResults = reverseTraceWeapon(level, baseStats, baseWA, increasedStats, increasedWA, slots, stars);
+				console.log("Level:" + level + " baseStats:" + baseStats + " baseWA:" + baseWA + " increasedStats:" + increasedStats + " increasedWA:" + increasedWA + " slots:" + slots + " stars:" + stars);
+				console.log(traceResults);
+				console.log(" ");
+			} 
+			else if (type == "glove") {
+				var traceResults = reverseTraceGlove(level, baseStats, baseWA, increasedStats, increasedWA, slots, stars);
+				console.log("Level:" + level + " baseStats:" + baseStats + " baseWA:" + baseWA + " increasedStats:" + increasedStats + " increasedWA:" + increasedWA + " slots:" + slots + " stars:" + stars);
+				console.log(traceResults);
+				console.log(" ");
+			} 
+			else if (type == "armor") {
+				var traceResults = reverseTraceArmor(level, baseStats, baseWA, increasedStats, increasedWA, slots, stars);
+				console.log("Level:" + level + " baseStats:" + baseStats + " baseWA:" + baseWA + " increasedStats:" + increasedStats + " increasedWA:" + increasedWA + " slots:" + slots + " stars:" + stars);
+				console.log(traceResults);
+				console.log(" ");
+			} 
+			else {
+				window.alert("Equipment Type Error!");
+			}
+			
+			if (traceResults != 0) {
+				document.getElementById("traceResultSection").innerHTML = "<div class='alert alert-success' role='alert' align='center'> Your equipment is <b>" + traceResults + "%</b> traced! </div>";
+			}
+			else {
+				document.getElementById("traceResultSection").innerHTML = "<div class='alert alert-danger' role='alert' align='center'> Equipment is not completely traced using 15/30/70/100% </div>";
+			}
+		}
+  </script>
+
+</body>
+
+</html>
