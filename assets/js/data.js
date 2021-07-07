@@ -94,7 +94,8 @@ function compound(baseWA, stars) {
 	if(stars >= 15) {stars = 15;};
 	for (i = 0; i < stars; i++) {
 		var incrementWA = 0;
-		incrementWA = Math.ceil(totalWA * 0.02);
+		// incrementWA = Math.ceil(totalWA * 0.02);		// 303 WA gives 418 in Maple instead of 417. Suspected instead of rounding, they remove decimals and +1
+		incrementWA = Math.trunc(totalWA * 0.02) + 1;
 		totalWA += incrementWA;
 	}
 	return totalWA;
