@@ -85,9 +85,10 @@
 				<div class="form-group">
 					<label for="equipmentLevel"><b>Equipment Type:</b></label>
 					<select class="form-control" name="equipmentType" id="equipmentType">
-						<option value="weapon">Weapon</option>
+						<option value="weapon">Weapons</option>
 						<option value="glove">Gloves</option>
-						<option value="armor">Armor and Accessories (excl. hearts)</option>
+						<option value="armor">Armors and Shoulders</option>
+						<option value="accessory">Accessories (excl. hearts)</option>
 					</select>
 				</div>
 				<br>
@@ -201,19 +202,26 @@
 				console.log(traceResults);
 				console.log(" ");
 			} 
+			else if (type == "accessory") {
+				var traceResults = reverseTraceAccessory(level, baseStats, baseWA, increasedStats, increasedWA, slots, stars);
+				console.log("Level:" + level + " baseStats:" + baseStats + " baseWA:" + baseWA + " increasedStats:" + increasedStats + " increasedWA:" + increasedWA + " slots:" + slots + " stars:" + stars);
+				console.log(traceResults);
+				console.log(" ");
+			}
 			else {
 				window.alert("Equipment Type Error!");
 			}
 			
 			if (traceResults != 0) {
 				document.getElementById("traceResultSection").innerHTML = "<div class='alert alert-success' role='alert' align='center'> Your equipment is <b>" + traceResults + "%</b> traced! </div>";
+				document.getElementById("traceResultExtraSection").innerHTML = "";
 			}
 			else {
 				document.getElementById("traceResultSection").innerHTML = "<div class='alert alert-danger' role='alert' align='center'> Equipment is not completely traced using 15/30/70/100% </div>";
 				
 				// Calculate extra stats and attack from trace or scrolls
 				if (type == "glove") { var extraWA = increasedWA - starforceWAGlove[level][stars]; }
-				else if (type == "armor") { var extraWA = increasedWA - starforceWA[level][stars]; }
+				else if (type == "armor" || type == "accessory") { var extraWA = increasedWA - starforceWA[level][stars]; }
 				else if (type == "weapon") { var extraWA = "Unable to determine"; }
 				
 				if (type != "weapon") { extraWA = (extraWA<0?'':'+') + extraWA; }	// append plus sign in front of numbers

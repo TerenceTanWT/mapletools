@@ -63,6 +63,26 @@ function reverseTraceArmor(level, baseStats, baseWA, increasedStats, increasedWA
 	return 0;
 }
 
+function reverseTraceAccessory(level, baseStats, baseWA, increasedStats, increasedWA, slots, stars, glove) {
+	var traceStats = [2, 3, 5]; // index 0 = 100%, 1 = 70%, 2 = 30%
+	var traceIndex = 0;
+	var calculatedincreasedStats = 0;
+	var calculatedincreasedWA = 0;
+	
+	while(traceIndex < 3) {
+		calculatedincreasedStats = starforceStats[level][stars] + (slots * traceStats[traceIndex]);
+		calculatedincreasedWA = starforceWA[level][stars];
+		if(calculatedincreasedStats == increasedStats && calculatedincreasedWA == increasedWA) {
+			if(traceIndex == 0) {return "100";}
+			if(traceIndex == 1) {return "70";}
+			if(traceIndex == 2) {return "30";}
+		}
+		traceIndex++;
+	}
+	
+	return 0;
+}
+
 function reverseTraceGlove(level, baseStats, baseWA, increasedStats, increasedWA, slots, stars) {
 	var traceWA = [1, 2, 3]; // index 0 = 100%, 1 = 70%, 2 = 30%
 	var traceIndex = 0;
