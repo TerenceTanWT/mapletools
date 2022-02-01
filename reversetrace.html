@@ -74,6 +74,7 @@
 				<div class="form-group">
 					<label for="equipmentLevel"><b>Equipment Level:</b></label>
 					<select class="form-control" type="number" name="equipmentLevel" id="equipmentLevel">
+						<option value="130">128 - 137</option>
 						<option value="140">138 - 149</option>
 						<option value="150">150 - 159</option>
 						<option value="160">160 - 199</option>
@@ -127,6 +128,16 @@
 			<div class="container">
 				<div class="row justify-content-md-center">
 					<div id="traceResultSection" class="col col-lg-6">
+
+					</div>
+				</div>
+			</div>
+			
+			<br>
+			
+			<div class="container">
+				<div class="row justify-content-md-center">
+					<div id="traceResultExtraSection" class="col col-lg-6">
 
 					</div>
 				</div>
@@ -199,6 +210,18 @@
 			}
 			else {
 				document.getElementById("traceResultSection").innerHTML = "<div class='alert alert-danger' role='alert' align='center'> Equipment is not completely traced using 15/30/70/100% </div>";
+				
+				// Calculate extra stats and attack from trace or scrolls
+				if (type == "glove") { var extraWA = increasedWA - starforceWAGlove[level][stars]; }
+				else if (type == "armor") { var extraWA = increasedWA - starforceWA[level][stars]; }
+				else if (type == "weapon") { var extraWA = "Unable to determine"; }
+				
+				if (type != "weapon") { extraWA = (extraWA<0?'':'+') + extraWA; }	// append plus sign in front of numbers
+				
+				var extraStats = increasedStats - starforceStats[level][stars];
+				extraStats = (extraStats<0?'':'+') + extraStats;					// append plus sign in front of numbers
+
+				document.getElementById("traceResultExtraSection").innerHTML = "<div class='alert alert-info' role='alert' align='center'> <h4>Stats from Trace/Scroll</h4> Stats: <b>" + extraStats + " </b> <br> Attack: <b>" + extraWA + "</b> </div>";
 			}
 		}
   </script>
