@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>IED Calculator</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <style> 
+		body {
+			padding-bottom: 120px;
+		}
+  </style>
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-between align-items-center">
+
+      <div class="logo">
+        <h1><a href="index.html">MapleStory Tools</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="reversetrace.html">Spell Trace Check</a></li>
+		  <li><a class="active" href="ied.html">IED Calculator</a></li>
+		  <li><a href="setcompare.html">Eqp Set Comparison</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+  
+  
+
+  <main id="main">
+  
+	<br>
+	<br>
+	<div class="container">
+		<div class="section-title">
+          <h2>IED Calculator</h2>
+          <p>Calculate your character's IED by adding or removing IED lines. Click the added IED sources to delete them.</p>
+        </div>
+	</div>
+	
+	<div class="container">
+		<div class="row justify-content-md-center">
+			<div class="col col-lg-4 col-8 mx-auto alert alert-info" role="alert" align="center">
+			  <h4>Ignore Enemy Defense:</h4>
+			  <p id="totalIED" style="font-weight:bold; font-size:30px;" class="mb-0">0%</p>
+			</div>
+        </div>
+	</div>
+	
+	
+	<!-- ======= Collasped Field ======= -->
+	  
+	<div class="container">
+		<div class="card col col-lg-4 col-8 mx-auto">
+			<div class="card-header" id="headingOne">
+				<h5 class="mb-0">
+					<button id="commonIEDCollaspeButton" class="btn" data-bs-toggle="collapse" data-bs-target="#collapseOne" 	aria-expanded="true" aria-controls="collapseOne">
+						<i class="bi bi-arrows-angle-expand"></i> &nbsp; Common IED sources 
+				</button>
+				</h5>
+			</div>
+		
+		<div id="collapseOne" class="collapse" aria-labelledby="headingOne">
+		  <div class="card-body">
+			<form id="commonIEDForm" onsubmit="return false">
+				<input id="hat" type="text" class="form-control mb-2" placeholder="Hat">
+				<input id="top" type="text" class="form-control mb-2" placeholder="Top">
+				<input id="bottom" type="text" class="form-control mb-2" placeholder="Bottom">
+				<input id="weapon" type="text" class="form-control mb-2" placeholder="Weapon">
+				<input id="armourSet" type="text" class="form-control mb-2" placeholder="Armour Set Effect">
+				<input id="accessorySet" type="text" class="form-control mb-2" placeholder="Accessories Set Effect">
+				<input id="title" type="text" class="form-control mb-2" placeholder="Title">
+				<input id="ambition" type="text" class="form-control mb-2" placeholder="Ambition">
+				<input id="link1" type="text" class="form-control mb-2" placeholder="Luminous Link Skill">
+				<input id="link2" type="text" class="form-control mb-2" placeholder="Zero Link Skill">
+				<input id="link3" type="text" class="form-control mb-2" placeholder="Hoyoung Link Skill">
+				<input id="hyper" type="text" class="form-control mb-2" placeholder="Hyper Stats">
+				<input id="blaster" type="text" class="form-control mb-2" placeholder="Blaster Union Grid">
+				<input id="unionBoard" type="text" class="form-control mb-2" placeholder="Union Board">
+				<button class="btn btn-success" onClick="addCommonIED();"> Add All </button>
+			</form>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
+	<br>
+	
+	<!-- ======= Input Fields and Buttons ======= -->
+	
+    <div class="container">
+		<div class="row justify-content-md-center">
+			<div class="col col-lg-2 col-8 mx-auto" align="center">
+				<div class="form-group">
+					<input id="iedName" type="text" class="form-control mb-2" placeholder="Name (e.g. weapon)">
+					<input id="iedValue" type="text" class="form-control mb-2" placeholder="IED % (e.g. 30)">
+					<button type="submit" class="btn btn-success mb-2" onclick="addIEDSource(document.getElementById('iedName').value, Number(document.getElementById('iedValue').value));">Add</button>
+					<button type="submit" class="btn btn-danger mb-2" onclick="deleteIEDSource(document.getElementById('iedName').value, Number(document.getElementById('iedValue').value));">Remove</button>
+				</div>
+			</div>
+        </div>
+	</div>
+	
+	<br>
+	
+	<div class="container">
+		<div class="row justify-content-md-center">
+			<div class="col col-lg-3" align="center">
+				<h5> IED Sources: </h5>
+				<div id="displayIEDSources">			
+						
+						<!--
+						<div class='container iedBlock'>
+							<div class='row justify-content-md-center'>
+								<div class='col'>
+									<div class='alert alert-success pt-1 pb-1 mb-1' role='alert' align='center' onclick='removeIEDBlock(this)' style='cursor: pointer;'> 
+										<b> Untitled </b>
+										<br>
+										30%
+									</div>
+								</div>
+							</div>
+						</div>
+						-->
+					
+				</div>
+			</div>
+        </div>
+	</div>
+	
+	
+	
+	  
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>AppleFlash</span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  
+  <!-- Data -->
+  <script src="assets/js/data.js"></script>
+  
+  <!-- Javascript Logics -->
+  <script>
+	
+	// Add IED and calculate new IED
+	function calculateIED(currentIED, addIED) {
+		var newIED = (addIED * (1 - currentIED)) + currentIED;
+		return parseFloat(newIED.toFixed(5));
+	}
+
+	// Remove IED and calculate new IED
+	function reverseIED(currentIED, addIED) {
+		var newIED = currentIED - (((1 - currentIED) / (1 - addIED)) * addIED);
+		return parseFloat(newIED.toFixed(5));
+	}
+	
+	// Adds green IED block onto the website and update new total IED
+	function addIEDSource(name, value) {
+		if(!isNaN(value)) { 
+			name = name || "Untitled";		// Set name to untitled if empty
+			var totalIED = document.getElementById("totalIED").innerHTML.replace(/[^\d.-]/g, '');
+			totalIED = calculateIED(totalIED/100, value/100);
+			document.getElementById("totalIED").innerHTML = parseFloat((totalIED*100).toFixed(5)) + "%";
+			
+			document.getElementById("displayIEDSources").innerHTML = "<div class='container iedBlock'><div class='row justify-content-md-center'><div class='col'><div class='alert alert-success pt-1 pb-1 mb-1' role='alert' align='center' style='cursor: pointer;' onclick='removeIEDBlock(this, "+ value +" ,\"green\")'> <b>" + name + "</b><br>+" + value + "% </div></div></div></div>" + document.getElementById("displayIEDSources").innerHTML;
+		}
+	}
+
+	// Adds red IED block onto the website and update new total IED
+	function deleteIEDSource(name, value) {
+		if(!isNaN(value)) { 
+			name = name || "Untitled";		// Set name to untitled if empty
+			var totalIED = document.getElementById("totalIED").innerHTML.replace(/[^\d.-]/g, '');
+			totalIED = reverseIED(totalIED/100, value/100);
+			document.getElementById("totalIED").innerHTML = parseFloat((totalIED*100).toFixed(5)) + "%";
+			
+			document.getElementById("displayIEDSources").innerHTML = "<div class='container iedBlock'><div class='row justify-content-md-center'><div class='col'><div class='alert alert-danger pt-1 pb-1 mb-1' role='alert' align='center' style='cursor: pointer;' onclick='removeIEDBlock(this, "+ value +",\"red\")'> <b>" + name + "</b><br>-" + value + "% </div></div></div></div>" + document.getElementById("displayIEDSources").innerHTML;
+		}
+	}
+	
+	// Removes IED block onto the website and update new total IED
+	function removeIEDBlock(block, value, color) {
+		//block.remove();
+		block.parentNode.parentNode.parentNode.parentNode.removeChild(block.parentNode.parentNode.parentNode);
+		if (color == "green") {
+			var totalIED = document.getElementById("totalIED").innerHTML.replace(/[^\d.-]/g, '');
+			totalIED = reverseIED(totalIED/100, value/100);
+			document.getElementById("totalIED").innerHTML = parseFloat((totalIED*100).toFixed(5)) + "%";
+		} else if (color == "red") {
+			var totalIED = document.getElementById("totalIED").innerHTML.replace(/[^\d.-]/g, '');
+			totalIED = calculateIED(totalIED/100, value/100);
+			document.getElementById("totalIED").innerHTML = parseFloat((totalIED*100).toFixed(5)) + "%";
+		}
+		
+		// If there are no more IED blocks, set total IED to 0%
+		if (document.getElementsByClassName("iedBlock").length == 0) {
+			document.getElementById("totalIED").innerHTML = "0%";
+		}
+
+	}
+	
+	function addCommonIED() {
+		if (Number(document.getElementById('hat').value)) { addIEDSource("Hat", Number(document.getElementById('hat').value)); }
+		if (Number(document.getElementById('top').value)) { addIEDSource("Top", Number(document.getElementById('top').value)); }
+		if (Number(document.getElementById('bottom').value)) { addIEDSource("Bottom", Number(document.getElementById('bottom').value)); }
+		if (Number(document.getElementById('weapon').value)) { addIEDSource("Weapon", Number(document.getElementById('weapon').value)); }
+		if (Number(document.getElementById('armourSet').value)) { addIEDSource("Armour Set Effect", Number(document.getElementById('armourSet').value)); }
+		if (Number(document.getElementById('accessorySet').value)) { addIEDSource("Accessories Set Effect", Number(document.getElementById('accessorySet').value)); }
+		if (Number(document.getElementById('title').value)) { addIEDSource("Title", Number(document.getElementById('title').value)); }
+		if (Number(document.getElementById('ambition').value)) { addIEDSource("Ambition", Number(document.getElementById('ambition').value)); }
+		if (Number(document.getElementById('link1').value)) { addIEDSource("Luminous Link Skill", Number(document.getElementById('link1').value)); }
+		if (Number(document.getElementById('link2').value)) { addIEDSource("Zero Link Skill", Number(document.getElementById('link2').value)); }
+		if (Number(document.getElementById('link3').value)) { addIEDSource("Hoyoung Link Skill", Number(document.getElementById('link3').value)); }
+		if (Number(document.getElementById('hyper').value)) { addIEDSource("Hyper Stats", Number(document.getElementById('hyper').value)); }
+		if (Number(document.getElementById('blaster').value)) { addIEDSource("Blaster Union Grid", Number(document.getElementById('blaster').value)); }
+		if (Number(document.getElementById('unionBoard').value)) { addIEDSource("Union Board", Number(document.getElementById('unionBoard').value)); }
+		document.getElementById("commonIEDForm").reset();
+		document.getElementById("commonIEDCollaspeButton").click();
+		window.scrollTo(0, 0);
+	}
+  </script>
+
+</body>
+
+</html>
