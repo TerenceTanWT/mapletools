@@ -19,6 +19,24 @@ function compound(baseWA, stars) {
 	return totalWA;
 }
 
+
+function reverseCompound(totalWA, stars) {
+	var baseWA = Math.ceil( (totalWA) / (1.02 ** stars) );	// 1.02^stars
+	if(stars <= 15) {
+		for (k = 0; k < (stars*2); k++) {
+			if (compound(baseWA, stars) == totalWA) {
+				return baseWA;
+			}
+			baseWA--;
+		}
+	} else {
+		return -1;
+	}
+	
+	return 0;
+}
+
+
 function reverseTraceWeapon(level, baseStats, baseWA, increasedStats, increasedWA, slots, stars) {
 	var traceWA = [3, 5, 7, 9]; // index 0 = 100%, 1 = 70%, 2 = 30%, 3 = 15%
 	var traceStats = [1, 2, 3, 4]; // index 0 = 100%, 1 = 70%, 2 = 30%, 3 = 15%
