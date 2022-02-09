@@ -22,14 +22,18 @@ function compound(baseWA, stars) {
 
 function reverseCompound(totalWA, stars) {
 	var baseWA = Math.ceil( (totalWA) / (1.02 ** stars) );	// 1.02^stars
-	if(stars <= 15) {
+	if(stars <= 15 && stars != 0) {
 		for (k = 0; k < (stars*2); k++) {
 			if (compound(baseWA, stars) == totalWA) {
 				return baseWA;
 			}
 			baseWA--;
 		}
-	} else {
+	} 
+	else if (stars == 0) {
+		return totalWA;
+	}
+	else {
 		return -1;
 	}
 	
