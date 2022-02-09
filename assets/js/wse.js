@@ -122,7 +122,7 @@ function startCompare() {
 	}
 	else if (Math.sign(finalDamage) < 0) {
 		document.getElementById("finalDamage").style.color = "red";
-		document.getElementById("finalDamage").innerHTML = "-" + finalDamage.toFixed(2) + "%";
+		document.getElementById("finalDamage").innerHTML = finalDamage.toFixed(2) + "%";
 	}
 	else {
 		document.getElementById("finalDamage").style.color = "black";
