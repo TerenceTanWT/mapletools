@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>WSE Comparison</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <style> 
+		body {
+			padding-bottom: 120px;
+		}
+  </style>
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-between align-items-center">
+
+      <div class="logo">
+        <h1><a href="index.html">MapleStory Tools</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="reversetrace.html">Spell Trace Check</a></li>
+		  <li><a href="ied.html">IED Calculator</a></li>
+		  <li><a class="active" href="wse.html">WSE Comparison</a></li>
+		  <li><a href="setcompare.html">Eqp Set Comparison</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+  
+  
+
+  <main id="main">
+  
+	<br>
+	<br>
+	<div class="container">
+		<div class="section-title">
+          <h2>WSE Comparison</h2>
+          <p>Compare attack, damage, and IED lines on WSE, taking into consideration individual skills IED.</p>
+        </div>
+	</div>
+	
+	
+	<!-- Before and After stats form -->
+	<section id="statsForm" class="contact pb-2">
+		<div class="container">
+			<div class="row">
+			
+				<div class="col-lg-4 offset-lg-2 col-6 col-md-6"> 
+					<div class="info-box mb-4">
+						<div class="container"> 
+							<div class="form-group">
+								<div class="row">
+									<div class="col-6 offset-3"> <h4> Before </h4> </div>
+									<div class="col-3" > <p class="bi bi-question-circle" style="font-size:20px; color:#e96b56" data-bs-toggle="modal" data-bs-target="#statsHelp"></p> </div>
+								</div>
+									<input id="beforeDmg" type="text" class="form-control mb-2" placeholder="Damage %">
+									<input id="beforeIED" type="text" class="form-control mb-2" placeholder="IED %">
+									<input id="beforeAtt" type="text" class="form-control mb-2" placeholder="Att %">
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-lg-4 col-6 col-md-6"> 
+					<div class="info-box mb-4">
+						<div class="container">
+							<div class="form-group">
+								<h4> After </h4>
+									<input id="afterDmg" type="text" class="form-control mb-2" placeholder="Damage %">
+									<input id="afterIED" type="text" class="form-control mb-2" placeholder="IED %">
+									<input id="afterAtt" type="text" class="form-control mb-2" placeholder="Att %">
+							</div>
+						</div>
+					</div>
+				</div>
+			
+			</div>
+		</div>
+		
+			<div class="row">
+	
+				<!-- Skills form -->
+				<div class="col col-lg-4 col-11 mx-auto" align="center">
+					<div class="info-box mb-4">
+						<div class="container">
+							<div class="form-group">
+								<div class="row">
+									<div class="col-8 offset-2"> <h4> Skills </h4> </div>
+									<div class="col-2" > <p class="bi bi-question-circle" style="font-size:20px; color:#e96b56" data-bs-toggle="modal" data-bs-target="#skillsHelp"></p> </div>
+								</div>
+								<div class="form-group row mb-2" style="display:flex; justify-content: center; align-items: center;">
+									<div class="col col-4"> <label><b>Skill Name:</b></label> </div>
+									<div class="col col-8"> <input id="skillName" type="text" class="form-control" placeholder="e.g. Phantom Blow"> </div>
+								</div>
+								<div class="form-group row mb-2" style="display:flex; justify-content: center; align-items: center;">
+									<div class="col col-4"> <label><b>Skill IED:</b></label> </div>
+									<div class="col col-8"> <input id="skillIED" type="text" class="form-control" placeholder="e.g. 30+20+20"> </div>
+								</div>
+								<div class="form-group row mb-2" style="display:flex; justify-content: center; align-items: center;">
+									<div class="col col-4"> <label><b>Damage Ratio:</b></label> </div>
+									<div class="col col-8"> <input id="skillDamageRatio" type="text" class="form-control" placeholder="e.g. 31.69"> </div>
+								</div>
+								<div class="form-group row mb-2" style="display:none; justify-content: center; align-items: center;">
+									<div class="col col-4"> <label><b>Remaining Ratio:</b></label> </div>
+									<div class="col col-8"> <input id="remainingRatio" type="text" class="form-control" placeholder="Remaining Ratio" value="100"> </div>
+								</div>
+								<div class="form-group row mb-2" style="display:none; justify-content: center; align-items: center;">
+									<div class="col col-4"> <label><b>Skill Number:</b></label> </div>
+									<div class="col col-8"> <input id="skillNumber" type="text" class="form-control" placeholder="Increment from 1" value="1"> </div>
+								</div>
+								
+								<button type="submit" class="btn btn-primary mb-4" onclick="addStatsBlock(document.getElementById('skillName').value, document.getElementById('skillIED').value, document.getElementById('skillDamageRatio').value, document.getElementById('skillNumber').value)">Add</button>
+								
+								
+								<div id="skillBlocks">
+									<!--
+									<div class='row'>
+										<div class='col'>
+											<div class='alert alert-primary pt-1 pb-1 mb-1' role='alert' align='center' onclick='removeSkillBlock(this, "1")' style='cursor: pointer;'> 
+												<b id='blockName1'> Phantom Blow </b>
+												<br>
+												<b>IED: </b><text id='blockIEDDisplay1'> 65.7% </text>
+												<br>
+												<b>Ratio: </b><text id='blockRatio1'> 20% </text>
+												<div style='display:none'><b>Real IED: </b><text id='blockIED1'> 0.657 </text></div>
+												<div style='display:none'><b>Number: </b><text id='blockNumber1'> 1 </text></div>
+											</div>
+										</div>
+									</div>
+									-->
+								</div>
+								
+			
+							</div>
+						</div>
+					</div>
+				</div>
+		
+			</div>
+		
+			
+		</div>
+	</section>
+	
+	<div class="container" align="center">
+		<button type="submit" class="btn btn-success btn-lg mb-4" onclick="startCompare();">Compare</button>
+	</div>
+	
+	
+	<!-- ======= Display Final Damage Increase ======= -->
+	<section id="contact" class="contact">
+		<div class="container">
+			<div class="row justify-content-md-center">
+				<div class="col col-lg-4 col-11 mx-auto">
+					<div class="info-box mb-2">
+						<h4> Final Damage Increase </h4>
+						<p id="finalDamage" style="font-weight:bold; font-size:30px;" class="mb-0">0%</p>
+						<p id="tempFinalDamage" style="display:none" class="mb-0">0</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	
+	
+	
+	
+	<!-- ======= Collasped Field ======= -->
+	  
+	<div class="container">
+		<div class="card col col-lg-6 col-11 mx-auto">
+			<div class="card-header" id="headingOne">
+				<h5 class="mb-0">
+				<div class="row">
+					<div class="col col-10">
+						<button id="commonIEDCollaspeButton" class="btn" data-bs-toggle="collapse" data-bs-target="#collapseOne" 	aria-expanded="true" aria-controls="collapseOne">
+							<i class="bi bi-arrows-angle-expand"></i> &nbsp; Detailed Calculations (Optional)
+						</button>
+					</div>
+					<div class="col col-2" style="display:flex; justify-content: center; align-items: center;">
+						<i class="bi bi-question-circle" style="font-size:20px; color:#e96b56" data-bs-toggle='modal' data-bs-target='#calculationHelp'></i>
+					</div>
+					
+					</div>
+				</h5>
+			</div>
+		
+			<div id="collapseOne" class="collapse" aria-labelledby="headingOne">
+				<div id="showCalculations" class="card-body">
+					
+					<!--
+					<div id='calculationBlocks' class='row'>
+						<div class='alert alert-secondary pt-1 pb-1 mb-1 col col-11 mx-auto' role='alert' align='center'> 
+							<b id='calName1'> Phantom Blow </b> 
+							<br>
+							<b>Ratio: </b><text id='calRatio1'> 20% </text>
+							<br><br>
+							<b>IED Old: </b><text id='calIEDOld1'> 89.99% </text>
+							<br>
+							<b>IED New: </b><text id='calIEDNew1'> 90% </text>
+							<br>
+							<b>IED Diff: </b><text id='calIEDDiff1'> 0.52% </text>
+							<br>
+							<b>IED FD+: </b><text id='calIEDFD1'> 90% </text>
+							<br>
+							<b>IED FD+ Avg: </b><text id='calIEDFDAvg1'> 0.03% </text>
+							<br><br>
+							<b>Att FD+: </b><text id='calAttFD1'> 4.66% </text>
+							<br>
+							<b>Att FD+ Avg: </b><text id='calAttFDAvg1'> 0.23% </text>
+							<br><br>
+							<b>Dmg FD+: </b><text id='calDmgFD1'> 4% </text>
+							<br>
+							<b>Dmg FD+ Avg: </b><text id='calDmgFDAvg1'> 0.20% </text>
+							<br><br>
+							<b>Overall FD+: </b><text id='OverallFD1'> 0.5% </text>
+							<div style='display:none'><b>Number: </b><text id='calBlockNumber1'> 1 </text></div>
+						</div>
+					</div>
+					-->
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- ======= Modals ======= -->
+	<div class="modal fade" id="statsHelp" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Before/After Help</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<b>Damage %</b> - See from stats window Damage + Boss Damage.
+					<br><br>
+					<b>IED %</b> - See from stats window Ignore Def.
+					<br><br>
+					<b>Att %</b> - Manually add up from Weapon, Secondary Weapon, Emblem potential lines.
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="modal fade" id="skillsHelp" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Skills Help</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					Perform a battle statistics and note down the damage ratio % of each skills.
+					<br><br>
+					Enter the skill name, in-built skill IED (e.g. V-matrix 20% IED), and damage ratio % of the skill.
+					<br><br>
+					If multiple skills have the exact same in-built IED, you can combine the skill's damage ratio % and enter it once. Remaining ratio % will be treated as 0% in-built IED.
+					<br><br>
+					If the skill has multiple IED sources, use "+" to separate the IED % (e.g. 30+20+20).
+					<br><br>
+					To delete a skill, tap on the added skill in blue.
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="modal fade" id="calculationHelp" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Calculation Help</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<b>IED Old / New</b> - Before/After final skill IED after adding in-built skill IED with stat window IED.  
+					<br><br>
+					<b>IED Diff</b> - Difference between after and before IED.  
+					<br><br>
+					<b>FD</b> - Final Damage increase due to new stat.  
+					<br><br>
+					<b>FD Avg</b> - Average Final Damage increase due to new stat, after multiplying FD+ and damage ratio.  
+					<br><br>
+					<b>Overall FD</b> - Overall Final Damage increase by adding FD+ Avg of IED, Att, and Dmg.
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+
+	
+	
+	<!-- ======= Preload Skills Data ======= -->
+	<script>
+		window.onload = function() {
+			addStatsBlock("Storm Tornado Asura", "100", "47.28", "1");
+			addStatsBlock("Phantom Blow", "30+20+20", "31.69", "2");
+			addStatsBlock("Karmic Fury", "30", "16", "3");
+		};
+	</script>
+	
+	  
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>AppleFlash</span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <!--<script src="assets/vendor/jquery/jquery-3.6.0.min.js"></script>-->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  
+  <!-- Data -->
+  <script src="assets/js/data.js"></script>
+  
+  <!-- Javascript Logics -->
+  <script src="assets/js/wse.js"></script>
+
+</body>
+
+</html>
