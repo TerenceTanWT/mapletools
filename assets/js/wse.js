@@ -97,16 +97,18 @@ function startCompare() {
 		var dmgFD = ( (afterDmg - beforeDmg) / (100 + beforeDmg) ) * 100;
 		var dmgFDAvg = dmgFD * ratio;
 		
-		var overallFD = iedFDAvg + attFDAvg + dmgFDAvg;
+		var overallFD = ( (1 + (iedFDAvg/100)) * (1 + (attFDAvg/100)) * (1 + (dmgFDAvg/100)) ) - 1;
+		
+		//console.log("iedFDAvg - " + iedFDAvg);
+		//console.log("attFDAvg - " + attFDAvg);
+		//console.log("dmgFDAvg - " + dmgFDAvg);
 		
 		// Add overallFD into Final Damage Box temp value
 		document.getElementById("tempFinalDamage").innerHTML = Number(document.getElementById("tempFinalDamage").innerHTML) + overallFD;
 		
 		// Create calculation blocks
 		document.getElementById("showCalculations").innerHTML += "<div id='calculationBlocks' class='row'> <div class='alert alert-secondary pt-1 pb-1 mb-1 col col-11 mx-auto' role='alert' align='center'> <b id='calName1'> "+name+" </b> <br> <b>Ratio: </b><text id='calRatio"+skillNumber[k]+"'> "+(ratio*100)+"% </text> <br><br> <b>IED Old: </b><text id='calIEDOld"+skillNumber[k]+"'> "+(iedOld*100).toFixed(2)+"% </text> <br> <b>IED New: </b><text id='calIEDNew"+skillNumber[k]+"'> "+(iedNew*100).toFixed(2)+"% </text> <br> <b>IED Diff: </b><text id='calIEDDiff"+skillNumber[k]+"'> "+((iedDiff*100)<=0?"":"+")+(iedDiff*100).toFixed(2)+"% </text> <br> <b>IED FD: </b><text id='calIEDFD"+skillNumber[k]+"'> "+((iedFD*100)<=0?"":"+")+(iedFD*100).toFixed(2)+"% </text> <br> <b>IED FD Avg: </b><text id='calIEDFDAvg"+skillNumber[k]+"'> "+((iedFDAvg)<=0?"":"+")+(iedFDAvg).toFixed(2)+"% </text> <br><br> <b>Att FD: </b><text id='calAttFD"+skillNumber[k]+"'> "+(attFD).toFixed(2)+"% </text> <br> <b>Att FD Avg: </b><text id='calAttFDAvg"+skillNumber[k]+"'> "+(attFDAvg).toFixed(2)+"% </text> <br><br> <b>Dmg FD: </b><text id='calDmgFD"+skillNumber[k]+"'> "+(dmgFD).toFixed(2)+"% </text> <br> <b>Dmg FD Avg: </b><text id='calDmgFDAvg"+skillNumber[k]+"'> "+(dmgFDAvg).toFixed(2)+"% </text> <br><br> <b>Overall FD: </b><text id='OverallFD"+skillNumber[k]+"'> "+(overallFD).toFixed(2)+"% </text> <div style='display:none'><b>Number: </b><text id='calBlockNumber"+skillNumber[k]+"'> "+skillNumber[k]+" </text></div> </div> </div>";
-			
-		// Reset all variables
-		// beforeDmg = beforeIED = beforeAtt = afterDmg = afterIED = afterAtt = ratio = ied = iedOld = iedNew = iedDiff = iedFD = iedFDAvg = attFD = attFDAvg = dmgFD = dmgFDAvg = overallFD = 0;
+
 	}
 	
 	// Remove Others skill block
@@ -115,7 +117,7 @@ function startCompare() {
 	
 	
 	// Update Final Damage Box
-	var finalDamage = Number(document.getElementById("tempFinalDamage").innerHTML);
+	var finalDamage = Number(document.getElementById("tempFinalDamage").innerHTML) * 100;
 	if (Math.sign(finalDamage) > 0) {
 		document.getElementById("finalDamage").style.color = "green";
 		document.getElementById("finalDamage").innerHTML = "+" + finalDamage.toFixed(2) + "%";
