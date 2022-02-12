@@ -97,7 +97,7 @@ function startCompare() {
 		var dmgFD = ( (afterDmg - beforeDmg) / (100 + beforeDmg) ) * 100;
 		var dmgFDAvg = dmgFD * ratio;
 		
-		var overallFD = ( (1 + (iedFDAvg/100)) * (1 + (attFDAvg/100)) * (1 + (dmgFDAvg/100)) ) - 1;
+		var overallFD = (((1 + (iedFDAvg/100)) * (1 + (attFDAvg/100)) * (1 + (dmgFDAvg/100))) - 1) * 100;
 		
 		//console.log("iedFDAvg - " + iedFDAvg);
 		//console.log("attFDAvg - " + attFDAvg);
@@ -117,7 +117,7 @@ function startCompare() {
 	
 	
 	// Update Final Damage Box
-	var finalDamage = Number(document.getElementById("tempFinalDamage").innerHTML) * 100;
+	var finalDamage = Number(document.getElementById("tempFinalDamage").innerHTML);
 	if (Math.sign(finalDamage) > 0) {
 		document.getElementById("finalDamage").style.color = "green";
 		document.getElementById("finalDamage").innerHTML = "+" + finalDamage.toFixed(2) + "%";
