@@ -225,9 +225,18 @@
 				// Calculate extra stats and attack from trace or scrolls
 				if (type == "glove") { var extraWA = increasedWA - starforceWAGlove[level][stars]; }
 				else if (type == "armor" || type == "accessory") { var extraWA = increasedWA - starforceWA[level][stars]; }
-				else if (type == "weapon") { var extraWA = reverseCompound((baseWA + increasedWA) - starforceWAWeapon[level][stars], Math.min(stars,15)) - baseWA; } 	// reverseCompound(base+increased WA, stars)
+				else if (type == "weapon") { 
+					var reverseCompoundVar = reverseCompound((baseWA + increasedWA) - starforceWAWeapon[level][stars], Math.min(stars,15)); 	// reverseCompound(base+increased WA, stars)
+					if (reverseCompoundVar == 0) {
+						var extraWA = "Invalid Attack"; 
+					} 
+					else {
+						var extraWA = reverseCompoundVar - baseWA; 
+					}
+					 
+				} 	
 				
-				extraWA = (extraWA<0?'':'+') + extraWA;		// append plus sign in front of numbers
+				if (reverseCompoundVar != 0) {extraWA = (extraWA<0?'':'+') + extraWA;}		// append plus sign in front of numbers
 				
 				var extraStats = increasedStats - starforceStats[level][stars];
 				extraStats = (extraStats<0?'':'+') + extraStats;					// append plus sign in front of numbers
