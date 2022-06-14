@@ -152,6 +152,7 @@
 							<div class='row justify-content-md-center'>
 								<div class='col'>
 									<div class='alert alert-success pt-1 pb-1 mb-1' role='alert' align='center' onclick='removeIEDBlock(this)' style='cursor: pointer;'> 
+										<div style='padding-right:10px; position:absolute; top:0; right:0;'>x</div>
 										<b> Untitled </b>
 										<br>
 										30%
@@ -221,7 +222,7 @@
 			document.getElementById("totalIEDAccurate").innerHTML = totalIED*100;
 			document.getElementById("totalIED").innerHTML = parseFloat((totalIED*100).toFixed(2)) + "%";
 			
-			document.getElementById("displayIEDSources").innerHTML = "<div class='container iedBlock'><div class='row justify-content-md-center'><div class='col'><div class='alert alert-success pt-1 pb-1 mb-1' role='alert' align='center' style='cursor: pointer;' onclick='removeIEDBlock(this, "+ value +" ,\"green\")'> <b>" + name + "</b><br>+" + value + "% </div></div></div></div>" + document.getElementById("displayIEDSources").innerHTML;
+			document.getElementById("displayIEDSources").innerHTML = "<div class='container iedBlock'><div class='row justify-content-md-center'><div class='col'><div class='alert alert-success pt-1 pb-1 mb-1' role='alert' align='center' style='cursor: pointer;' onclick='removeIEDBlock(this, "+ value +" ,\"green\")'> <div style='padding-right:10px; position:absolute; top:0; right:0;'>x</div> <b>" + name + "</b><br>+" + value + "% </div></div></div></div>" + document.getElementById("displayIEDSources").innerHTML;
 		}
 	}
 
@@ -234,7 +235,7 @@
 			document.getElementById("totalIEDAccurate").innerHTML = totalIED*100;
 			document.getElementById("totalIED").innerHTML = parseFloat((totalIED*100).toFixed(2)) + "%";
 			
-			document.getElementById("displayIEDSources").innerHTML = "<div class='container iedBlock'><div class='row justify-content-md-center'><div class='col'><div class='alert alert-danger pt-1 pb-1 mb-1' role='alert' align='center' style='cursor: pointer;' onclick='removeIEDBlock(this, "+ value +",\"red\")'> <b>" + name + "</b><br>-" + value + "% </div></div></div></div>" + document.getElementById("displayIEDSources").innerHTML;
+			document.getElementById("displayIEDSources").innerHTML = "<div class='container iedBlock'><div class='row justify-content-md-center'><div class='col'><div class='alert alert-danger pt-1 pb-1 mb-1' role='alert' align='center' style='cursor: pointer;' onclick='removeIEDBlock(this, "+ value +",\"red\")'> <div style='padding-right:10px; position:absolute; top:0; right:0;'>x</div> <b>" + name + "</b><br>-" + value + "% </div></div></div></div>" + document.getElementById("displayIEDSources").innerHTML;
 		}
 	}
 	

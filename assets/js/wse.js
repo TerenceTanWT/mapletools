@@ -38,7 +38,7 @@ function addStatsBlock(name, ied, ratio, count) {
 			document.getElementById("skillNumber").value = Number(count) + 1;
 			document.getElementById("remainingRatio").value = (Number(document.getElementById("remainingRatio").value) - Number(ratio)).toFixed(2);
 						
-			document.getElementById("skillBlocks").innerHTML += "<div class='row'> <div class='col'> <div class='alert alert-primary pt-1 pb-1 mb-1' role='alert' align='center' onclick='removeSkillBlock(this,"+count+")' style='cursor: pointer;'> <b id='blockName"+count+"'> "+name+" </b><br><b>IED: </b><text id='blockIEDDisplay"+count+"'> "+displayIED+"% </text><br><b>Ratio: </b><text id='blockRatio"+count+"'> "+ratio+"% </text><div style='display:none'><b>Real IED: </b><text id='blockIED"+count+"'> "+currentIED+" </text></div><div style='display:none'><b>Number: </b><text id='blockNumber"+count+"'> "+count+" </text></div></div></div></div>";
+			document.getElementById("skillBlocks").innerHTML += "<div class='row'> <div class='col'> <div class='alert alert-primary pt-1 pb-1 mb-1' role='alert' align='center' onclick='removeSkillBlock(this,"+count+")' style='cursor: pointer;'> <div style='padding-right:10px; position:absolute; top:0; right:0;'>x</div> <b id='blockName"+count+"'> "+name+" </b><br><b>IED: </b><text id='blockIEDDisplay"+count+"'> "+displayIED+"% </text><br><b>Ratio: </b><text id='blockRatio"+count+"'> "+ratio+"% </text><div style='display:none'><b>Real IED: </b><text id='blockIED"+count+"'> "+currentIED+" </text></div><div style='display:none'><b>Number: </b><text id='blockNumber"+count+"'> "+count+" </text></div></div></div></div>";
 			
 		}
 		
