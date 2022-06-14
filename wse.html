@@ -73,12 +73,29 @@
         </div>
 	</div>
 	
-	
-	<!-- Before and After stats form -->
+	<!-- Main Form -->
 	<section id="statsForm" class="contact pb-2">
+		
+		<!-- PDR selection form -->
+		<div class="col col-lg-4 col-8 mx-auto" align="center">
+			<div class="info-box mb-4 p-4">
+				<div class="container">
+					<div class="form-group">
+						<div class="row">
+							<div class="form-group row" style="display:flex; justify-content: center; align-items: center;">
+								<div class="col-4"> <label><b> Boss PDR%: </b></label> </div> 
+								<div class="col col-6"> <input id="bossPDR" type="text" class="form-control" value="300"> </div>
+								<div class="col-2" > <p class="bi bi-question-circle" style="font-size:20px; color:#e96b56" data-bs-toggle="modal" data-bs-target="#pdrHelp"></p> </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+				
+		<!-- Before and After stats form -->
 		<div class="container">
 			<div class="row">
-			
 				<div class="col-lg-4 offset-lg-2 col-6 col-md-6"> 
 					<div class="info-box mb-4">
 						<div class="container"> 
@@ -107,73 +124,68 @@
 						</div>
 					</div>
 				</div>
-			
 			</div>
 		</div>
 		
-			<div class="row">
-	
-				<!-- Skills form -->
-				<div class="col col-lg-4 col-11 mx-auto" align="center">
-					<div class="info-box mb-4">
-						<div class="container">
-							<div class="form-group">
-								<div class="row">
-									<div class="col-8 offset-2"> <h4> Skills </h4> </div>
-									<div class="col-2" > <p class="bi bi-question-circle" style="font-size:20px; color:#e96b56" data-bs-toggle="modal" data-bs-target="#skillsHelp"></p> </div>
-								</div>
-								<div class="form-group row mb-2" style="display:flex; justify-content: center; align-items: center;">
-									<div class="col col-4"> <label><b>Skill Name:</b></label> </div>
-									<div class="col col-8"> <input id="skillName" type="text" class="form-control" placeholder="e.g. Phantom Blow"> </div>
-								</div>
-								<div class="form-group row mb-2" style="display:flex; justify-content: center; align-items: center;">
-									<div class="col col-4"> <label><b>Skill IED:</b></label> </div>
-									<div class="col col-8"> <input id="skillIED" type="text" class="form-control" placeholder="e.g. 30+20+20"> </div>
-								</div>
-								<div class="form-group row mb-2" style="display:flex; justify-content: center; align-items: center;">
-									<div class="col col-4"> <label><b>Damage Ratio:</b></label> </div>
-									<div class="col col-8"> <input id="skillDamageRatio" type="text" class="form-control" placeholder="e.g. 31.69"> </div>
-								</div>
-								<div class="form-group row mb-2" style="display:none; justify-content: center; align-items: center;">
-									<div class="col col-4"> <label><b>Remaining Ratio:</b></label> </div>
-									<div class="col col-8"> <input id="remainingRatio" type="text" class="form-control" placeholder="Remaining Ratio" value="100"> </div>
-								</div>
-								<div class="form-group row mb-2" style="display:none; justify-content: center; align-items: center;">
-									<div class="col col-4"> <label><b>Skill Number:</b></label> </div>
-									<div class="col col-8"> <input id="skillNumber" type="text" class="form-control" placeholder="Increment from 1" value="1"> </div>
-								</div>
-								
-								<button type="submit" class="btn btn-primary mb-4" onclick="addStatsBlock(document.getElementById('skillName').value, document.getElementById('skillIED').value, document.getElementById('skillDamageRatio').value, document.getElementById('skillNumber').value)">Add</button>
-								
-								
-								<div id="skillBlocks">
-									<!--
-									<div class='row'>
-										<div class='col'>
-											<div class='alert alert-primary pt-1 pb-1 mb-1' role='alert' align='center' onclick='removeSkillBlock(this, "1")' style='cursor: pointer;'> 
-												<b id='blockName1'> Phantom Blow </b>
-												<br>
-												<b>IED: </b><text id='blockIEDDisplay1'> 65.7% </text>
-												<br>
-												<b>Ratio: </b><text id='blockRatio1'> 20% </text>
-												<div style='display:none'><b>Real IED: </b><text id='blockIED1'> 0.657 </text></div>
-												<div style='display:none'><b>Number: </b><text id='blockNumber1'> 1 </text></div>
-											</div>
+		<!-- Skills form -->
+		<div class="row">
+			<div class="col col-lg-4 col-11 mx-auto" align="center">
+				<div class="info-box mb-4">
+					<div class="container">
+						<div class="form-group">
+							<div class="row">
+								<div class="col-8 offset-2"> <h4> Skills </h4> </div>
+								<div class="col-2" > <p class="bi bi-question-circle" style="font-size:20px; color:#e96b56" data-bs-toggle="modal" data-bs-target="#skillsHelp"></p> </div>
+							</div>
+							<div class="form-group row mb-2" style="display:flex; justify-content: center; align-items: center;">
+								<div class="col col-4"> <label><b>Skill Name:</b></label> </div>
+								<div class="col col-8"> <input id="skillName" type="text" class="form-control" placeholder="e.g. Phantom Blow"> </div>
+							</div>
+							<div class="form-group row mb-2" style="display:flex; justify-content: center; align-items: center;">
+								<div class="col col-4"> <label><b>Skill IED:</b></label> </div>
+								<div class="col col-8"> <input id="skillIED" type="text" class="form-control" placeholder="e.g. 30+20+20"> </div>
+							</div>
+							<div class="form-group row mb-2" style="display:flex; justify-content: center; align-items: center;">
+								<div class="col col-4"> <label><b>Damage Ratio:</b></label> </div>
+								<div class="col col-8"> <input id="skillDamageRatio" type="text" class="form-control" placeholder="e.g. 31.69"> </div>
+							</div>
+							<div class="form-group row mb-2" style="display:none; justify-content: center; align-items: center;">
+								<div class="col col-4"> <label><b>Remaining Ratio:</b></label> </div>
+								<div class="col col-8"> <input id="remainingRatio" type="text" class="form-control" placeholder="Remaining Ratio" value="100"> </div>
+							</div>
+							<div class="form-group row mb-2" style="display:none; justify-content: center; align-items: center;">
+								<div class="col col-4"> <label><b>Skill Number:</b></label> </div>
+								<div class="col col-8"> <input id="skillNumber" type="text" class="form-control" placeholder="Increment from 1" value="1"> </div>
+							</div>
+							
+							<button type="submit" class="btn btn-primary mb-4" onclick="addStatsBlock(document.getElementById('skillName').value, document.getElementById('skillIED').value, document.getElementById('skillDamageRatio').value, document.getElementById('skillNumber').value)">Add</button>
+							
+							
+							<div id="skillBlocks">
+								<!--
+								<div class='row'>
+									<div class='col'>
+										<div class='alert alert-primary pt-1 pb-1 mb-1' role='alert' align='center' onclick='removeSkillBlock(this, "1")' style='cursor: pointer;'> 
+											<b id='blockName1'> Phantom Blow </b>
+											<br>
+											<b>IED: </b><text id='blockIEDDisplay1'> 65.7% </text>
+											<br>
+											<b>Ratio: </b><text id='blockRatio1'> 20% </text>
+											<div style='display:none'><b>Real IED: </b><text id='blockIED1'> 0.657 </text></div>
+											<div style='display:none'><b>Number: </b><text id='blockNumber1'> 1 </text></div>
 										</div>
 									</div>
-									-->
 								</div>
-								
-			
+								-->
 							</div>
+							
+		
 						</div>
 					</div>
 				</div>
-		
 			</div>
-		
-			
 		</div>
+			
 	</section>
 	
 	<div class="container" align="center">
@@ -268,6 +280,25 @@
 	
 	
 	<!-- ======= Modals ======= -->
+	
+	<div class="modal fade" id="pdrHelp" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Boss PDR Help</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					Bosses from Lotus to Black Mage has <b>300%</b> Percentage Damage Reduction (PDR). It is recommended to optimise your IED for 300% PDR even if you are not at battling Lotus, unless you are optimising for Grandis bosses with higher PDR (e.g. Serene has 380%).
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
 	<div class="modal fade" id="statsHelp" tabindex="-1" role="dialog">
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
@@ -298,7 +329,7 @@
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					Perform a battle statistics and note down the damage ratio % of each skills.
+					Perform a battle analysis/statistics and note down the damage ratio % of each skills.
 					<br><br>
 					Enter the skill name, in-built skill IED (e.g. V-matrix 20% IED), and damage ratio % of the skill.
 					<br><br>

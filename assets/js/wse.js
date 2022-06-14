@@ -61,7 +61,7 @@ function startCompare() {
 	document.getElementById("showCalculations").innerHTML = "";
 	
 	// Set boss PDR
-	const bossIED = 300;
+	const bossIED = Number(document.getElementById("bossPDR").value);
 	
 	// Add Others skill block
 	var otherSkillNumber = document.getElementById("skillNumber").value;
