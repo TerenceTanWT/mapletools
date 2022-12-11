@@ -47,7 +47,7 @@ function reverseTraceWeapon(level, baseStats, baseWA, increasedStats, increasedW
 	var traceIndex = 0;
 	var calculatedincreasedStats = 0;
 	var calculatedincreasedWA = 0;
-	
+
 	while(traceIndex < 4) {
 		calculatedincreasedStats = starforceStats[level][stars] + (slots * traceStats[traceIndex]);
 		calculatedincreasedWA = compound(baseWA + (slots * traceWA[traceIndex]), stars) + starforceWAWeapon[level][stars] - baseWA;
