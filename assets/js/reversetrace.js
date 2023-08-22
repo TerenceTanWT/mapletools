@@ -64,20 +64,21 @@ function reverseTraceWeapon(level, baseStats, baseWA, increasedStats, increasedW
 }
 
 function reverseTraceArmor(level, baseStats, baseWA, increasedStats, increasedWA, slots, stars, glove) {
-	var traceStats = [3, 4, 7]; // index 0 = 100%, 1 = 70%, 2 = 30%
+	var traceStats = [3, 4, 7, 10]; // index 0 = 100%, 1 = 70%, 2 = 30%, 3 = 15%
 	var traceIndex = 0;
 	var calculatedincreasedStats = 0;
 	var calculatedincreasedWA = 0;
 	var fourthSuccess = 0;
 	if(slots >= 4) {fourthSuccess = 1;}
 	
-	while(traceIndex < 3) {
+	while(traceIndex < 4) {
 		calculatedincreasedStats = starforceStats[level][stars] + (slots * traceStats[traceIndex]);
 		calculatedincreasedWA = starforceWA[level][stars] + fourthSuccess;
 		if(calculatedincreasedStats == increasedStats && calculatedincreasedWA == increasedWA) {
 			if(traceIndex == 0) {return "100";}
 			if(traceIndex == 1) {return "70";}
 			if(traceIndex == 2) {return "30";}
+			if(traceIndex == 3) {return "15";}
 		}
 		traceIndex++;
 	}
@@ -106,20 +107,21 @@ function reverseTraceAccessory(level, baseStats, baseWA, increasedStats, increas
 }
 
 function reverseTraceGlove(level, baseStats, baseWA, increasedStats, increasedWA, slots, stars) {
-	var traceWA = [1, 2, 3]; // index 0 = 100%, 1 = 70%, 2 = 30%
+	var traceWA = [1, 2, 3, 4]; // index 0 = 100%, 1 = 70%, 2 = 30%
 	var traceIndex = 0;
 	var calculatedincreasedStats = 0;
 	var calculatedincreasedWA = 0;
 	var fourthSuccess = 0;
 	if(slots >= 4) {fourthSuccess = 1;}
 	
-	while(traceIndex < 3) {
+	while(traceIndex < 4) {
 		calculatedincreasedStats = starforceStats[level][stars];
 		calculatedincreasedWA = starforceWAGlove[level][stars] + (slots * traceWA[traceIndex]);
 		if(calculatedincreasedStats == increasedStats && calculatedincreasedWA == increasedWA) {
 			if(traceIndex == 0) {return "100";}
 			if(traceIndex == 1) {return "70";}
 			if(traceIndex == 2) {return "30";}
+			if(traceIndex == 3) {return "15";}
 		}
 		traceIndex++;
 	}
