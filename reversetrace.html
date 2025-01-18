@@ -47,7 +47,6 @@
           <li><a class="active" href="reversetrace.html">Spell Trace Check</a></li>
 		  <li><a href="ied.html">IED Calculator</a></li>
 		  <li><a href="wse.html">WSE Comparison</a></li>
-		  <li><a href="setcompare.html">Eqp Set Comparison</a></li>
 		  <li><a href="midnightchaser.html">Midnight Chaser Helper</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -76,8 +75,8 @@
 		<div class="row justify-content-md-center">
 			<div class="col col-lg-6">
 			
-				<div class='alert alert-info' role='alert' align='center'> This calculator has been updated to support 15% spell trace for armors! For bug report, message Apple on MapleSEA discord. </div>
-				<br>
+				<!--<div class='alert alert-info' role='alert' align='center'> This calculator has been updated to support 15% spell trace for armors! For bug report, message Apple on MapleSEA discord. </div>
+				<br>-->
 			
 				<div class="form-group">
 					<label for="equipmentLevel"><b>Equipment Level:</b></label>
@@ -117,7 +116,7 @@
 				<br>
 				<div class="form-group">
 				<label for="increasedStats"><b>Increased Stats (your main stats):</b></label>
-				<input type="number" class="form-control" id="increasedStats" placeholder="Blue color number inside the bracket">
+				<input type="number" class="form-control" id="increasedStats" placeholder="Add up purple + orange numbers">
 				</div>
 				<br>
 				<div class="form-group">
@@ -127,7 +126,7 @@
 				<br>
 				<div class="form-group">
 				<label for="increasedAttack"><b>Increased Attack (Weapon or Magic Attack depending on class):</b></label>
-				<input type="number" class="form-control" id="increasedAttack" placeholder="Blue color number inside the bracket">
+				<input type="number" class="form-control" id="increasedAttack" placeholder="Add up purple + orange numbers">
 				</div>
 				<br>
 				<button type="submit" class="btn btn-primary mb-2" onclick="executeTrace(Number(document.getElementById('equipmentLevel').value), document.getElementById('equipmentType').value, Number(document.getElementById('slots').value), Number(document.getElementById('stars').value), Number(document.getElementById('baseStats').value), Number(document.getElementById('increasedStats').value), Number(document.getElementById('baseAttack').value), Number(document.getElementById('increasedAttack').value))">Calculate</button>

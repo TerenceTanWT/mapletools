@@ -9,6 +9,52 @@ function reverseIED(currentIED, addIED) {
 		var newIED = currentIED - (((1 - currentIED) / (1 - addIED)) * addIED);
 		return newIED;
 	}
+
+// Calculate final IED value from a string consisting of + and -
+// Value e.g. 80+20+10-15. Returns 83.06.
+function stringToIED(elementId, formValue) {
+
+	// Remove all spaces from string
+	var cleanString = formValue.replace(/\s/g, "");
+	
+	// Split string into array based on + and -
+	var iedArray = cleanString.split(/(?=\+)|(?=\-)/g);
+	
+	console.log(iedArray);
+	
+	// If field is blank
+	if (iedArray[0] == ""){
+		return 0;
+	}
+	
+	// If first number is negative, error
+	if (iedArray[0] <= 0){
+		document.getElementById(elementId).value = "Invalid First Digit";
+		return "Invalid First Number";
+	}
+	
+	// Set current IED to first number in array. Replace function to remove any + or - sign
+	var currentIED = parseFloat(iedArray[0].replace(/\+|\-/g, ''))/100;
+	
+	for (let i=1; i<iedArray.length; i++) {
+
+		// Do this if next number is positive
+		if (iedArray[i] > 0) {
+			currentIED = calculateIED(currentIED, parseFloat(iedArray[i].replace(/\+|\-/g, ''))/100);
+		}
+		// Do this if next number is negative
+		else if (iedArray[i] < 0) {
+			currentIED = reverseIED(currentIED, parseFloat(iedArray[i].replace(/\+|\-/g, ''))/100);
+		}
+		// Do this if number is zero
+		else {
+			continue;
+		}	
+	}
+	
+	document.getElementById(elementId).value = (currentIED*100).toFixed(2);
+	return (currentIED*100).toFixed(2);
+}
 	
 // Adds blue stats block onto the website and update skill number
 function addStatsBlock(name, ied, ratio, count) {
@@ -43,6 +89,20 @@ function addStatsBlock(name, ied, ratio, count) {
 		}
 		
 	}
+
+// Job Preset
+function jobPreset(job) {
+	if (job == "none") {
+		document.getElementById("remainingRatio").value = 100;
+		document.getElementById("skillNumber").value = 1;
+		document.getElementById('skillBlocks').innerHTML = "";
+	}
+	if (job == "dualblade") {
+		addStatsBlock("Storm Tornado Asura", "100", "47.28", "1");
+		addStatsBlock("Phantom Blow", "30+20+20", "31.69", "2");
+		addStatsBlock("Karmic Fury", "30", "16", "3");
+	}
+};
 
 // Deletes blue stats block from the website
 function removeSkillBlock(block, id) {

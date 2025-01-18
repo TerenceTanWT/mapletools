@@ -52,7 +52,6 @@
           <li><a href="reversetrace.html">Spell Trace Check</a></li>
 		  <li><a href="ied.html">IED Calculator</a></li>
 		  <li><a class="active" href="wse.html">WSE Comparison</a></li>
-		  <li><a href="setcompare.html">Eqp Set Comparison</a></li>
 		  <li><a href="midnightchaser.html">Midnight Chaser Helper</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -106,7 +105,7 @@
 									<div class="col-3" > <p class="bi bi-question-circle" style="font-size:20px; color:#e96b56" data-bs-toggle="modal" data-bs-target="#statsHelp"></p> </div>
 								</div>
 									<input id="beforeDmg" type="text" class="form-control mb-2" placeholder="Damage %" value="">
-									<input id="beforeIED" type="text" class="form-control mb-2" placeholder="IED %" value="">
+									<input id="beforeIED" type="text" class="form-control mb-2" placeholder="IED % (e.g. 90)" value="" onfocusout="stringToIED(this.id, this.value)">
 									<input id="beforeAtt" type="text" class="form-control mb-2" placeholder="Att %" value="">
 							</div>
 						</div>
@@ -119,7 +118,7 @@
 							<div class="form-group">
 								<h4> After </h4>
 									<input id="afterDmg" type="text" class="form-control mb-2" placeholder="Damage %" value="">
-									<input id="afterIED" type="text" class="form-control mb-2" placeholder="IED %" value="">
+									<input id="afterIED" type="text" class="form-control mb-2" placeholder="IED % (e.g. 90+30)" value="" onfocusout="stringToIED(this.id, this.value)">
 									<input id="afterAtt" type="text" class="form-control mb-2" placeholder="Att %" value="">
 							</div>
 						</div>
@@ -135,8 +134,16 @@
 					<div class="container">
 						<div class="form-group">
 							<div class="row">
-								<div class="col-8 offset-2"> <h4> Skills </h4> </div>
+								<div class="col-8 offset-2"> <h4> Skills (Optional) </h4> </div>
 								<div class="col-2" > <p class="bi bi-question-circle" style="font-size:20px; color:#e96b56" data-bs-toggle="modal" data-bs-target="#skillsHelp"></p> </div>
+							</div>
+							<div class="form-group row mb-2" style="display:flex; justify-content: center; align-items: center;">
+								<div class="col">
+									<select class="form-select" onchange="jobPreset(this.value)">
+										<option value="none" selected>Class Preset (Optional)</option>
+										<option value="dualblade">Dual Blade</option>
+									</select>
+								</div>
 							</div>
 							<div class="form-group row mb-2" style="display:flex; justify-content: center; align-items: center;">
 								<div class="col col-4"> <label><b>Skill Name:</b></label> </div>
@@ -144,7 +151,7 @@
 							</div>
 							<div class="form-group row mb-2" style="display:flex; justify-content: center; align-items: center;">
 								<div class="col col-4"> <label><b>Skill IED:</b></label> </div>
-								<div class="col col-8"> <input id="skillIED" type="text" class="form-control" placeholder="e.g. 30+20+20"> </div>
+								<div class="col col-8"> <input id="skillIED" type="text" class="form-control" placeholder="e.g. 30+20+20" onfocusout="stringToIED(this.id, this.value)"> </div>
 							</div>
 							<div class="form-group row mb-2" style="display:flex; justify-content: center; align-items: center;">
 								<div class="col col-4"> <label><b>Damage Ratio:</b></label> </div>
@@ -374,20 +381,6 @@
 		</div>
 	</div>
 	
-	
-
-	
-	
-	<!-- ======= Preload Skills Data ======= -->
-	<script>
-		window.onload = function() {
-			addStatsBlock("Storm Tornado Asura", "100", "47.28", "1");
-			addStatsBlock("Phantom Blow", "30+20+20", "31.69", "2");
-			addStatsBlock("Karmic Fury", "30", "16", "3");
-		};
-	</script>
-	
-	  
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
