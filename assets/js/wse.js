@@ -98,9 +98,13 @@ function jobPreset(job) {
 		document.getElementById('skillBlocks').innerHTML = "";
 	}
 	if (job == "dualblade") {
-		addStatsBlock("Storm Tornado Asura", "100", "47.28", "1");
-		addStatsBlock("Phantom Blow", "30+20+20", "31.69", "2");
-		addStatsBlock("Karmic Fury", "30", "16", "3");
+		//addStatsBlock("Storm Tornado Asura", "100", "47.28", "1");
+		//addStatsBlock("Phantom Blow", "30+20+20", "31.69", "2");
+		//addStatsBlock("Karmic Fury", "30", "16", "3");
+		addStatsBlock("Storm Tornado Asura", "100", "37", "1");
+		addStatsBlock("Phantom Blow", "40+20+20", "22", "2");
+		addStatsBlock("Karma Blade", "50", "9", "3");
+		addStatsBlock("Karmic Fury Hhaunted Edge", "30", "17", "4");
 	}
 };
 
