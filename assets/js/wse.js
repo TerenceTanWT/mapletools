@@ -104,7 +104,7 @@ function jobPreset(job) {
 		addStatsBlock("Storm Tornado Asura", "100", "37", "1");
 		addStatsBlock("Phantom Blow", "40+20+20", "22", "2");
 		addStatsBlock("Karma Blade", "50", "9", "3");
-		addStatsBlock("Karmic Fury Hhaunted Edge", "30", "17", "4");
+		addStatsBlock("Karmic Fury Haunted Edge", "30", "17", "4");
 	}
 };
 
